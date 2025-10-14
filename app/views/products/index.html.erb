@@ -1,0 +1,308 @@
+<% content_for :title, "Supra Storefront" %>
+
+<%= render "shared/navbar" %>
+
+<section class="relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-12">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center">
+      <div class="space-y-6" id="hero">
+        <p class="inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Young Developer Power" data-i18n-th="พลังนักพัฒนารุ่นใหม่">Young Developer Power</p>
+        <h1 class="text-3xl md:text-5xl font-semibold leading-tight text-ink" data-i18n data-i18n-en="Shop the future of Thai tech lifestyle" data-i18n-th="ช้อปไลฟ์สไตล์เทคสุดล้ำเพื่อคนไทย">Shop the future of Thai tech lifestyle</h1>
+        <p class="text-slate-600 text-base md:text-lg max-w-xl" data-i18n data-i18n-en="Curated essentials, AI-powered styling, and seamless payments tuned for shoppers in Thailand." data-i18n-th="คัดสรรไอเท็มจำเป็น สไตลิ่งด้วย AI และระบบชำระเงินไร้รอยต่อออกแบบมาเพื่อคนไทย">Curated essentials, AI-powered styling, and seamless payments tuned for shoppers in Thailand.</p>
+        <div class="flex flex-wrap items-center gap-4">
+          <button type="button" class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-glow hover:bg-brand-dark transition" data-modal-trigger="login-modal">
+            <span data-i18n data-i18n-en="Join free" data-i18n-th="สมัครฟรี">Join free</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </button>
+          <a href="#collections" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-ink/80 hover:text-ink hover:border-brand transition">
+            <span data-i18n data-i18n-en="Explore catalog" data-i18n-th="ดูสินค้าทั้งหมด">Explore catalog</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-sm">
+          <div class="rounded-2xl border border-brand/30 bg-white/80 p-4 shadow-sm">
+            <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Members" data-i18n-th="สมาชิก">Members</p>
+            <p class="mt-2 text-2xl font-semibold text-ink">58K+</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="Nationwide" data-i18n-th="ทั่วประเทศ">Nationwide</p>
+          </div>
+          <div class="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+            <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Delivery" data-i18n-th="จัดส่ง">Delivery</p>
+            <p class="mt-2 text-2xl font-semibold text-ink" data-i18n data-i18n-en="Next-day" data-i18n-th="วันถัดไป">Next-day</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="Bangkok &amp; Metro" data-i18n-th="กรุงเทพฯ และปริมณฑล">Bangkok &amp; Metro</p>
+          </div>
+          <div class="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+            <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Reward" data-i18n-th="รางวัล">Reward</p>
+            <p class="mt-2 text-2xl font-semibold text-ink">2x</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="Coins this week" data-i18n-th="เหรียญพิเศษสัปดาห์นี้">Coins this week</p>
+          </div>
+          <div class="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+            <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Support" data-i18n-th="ช่วยเหลือ">Support</p>
+            <p class="mt-2 text-2xl font-semibold text-ink" data-i18n data-i18n-en="24/7" data-i18n-th="24/7">24/7</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="AI Concierge" data-i18n-th="คอนเซียร์จ AI">AI Concierge</p>
+          </div>
+        </div>
+      </div>
+      <% if @featured_product.present? %>
+        <div class="relative">
+          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand/20 via-transparent to-brand/10 blur-3xl rounded-full"></div>
+          <article class="group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/90 shadow-glow backdrop-blur supports-[backdrop-filter]:bg-white/70">
+            <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand via-accent to-brand"></div>
+            <div class="flex flex-col">
+              <div class="relative aspect-[4/5] overflow-hidden bg-brand/10">
+                <img src="<%= @featured_product["image"] %>" alt="<%= @featured_product["title"] %>" class="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105">
+              </div>
+              <div class="p-6 space-y-4">
+                <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Hero pick" data-i18n-th="สินค้าเด่น">Hero pick</p>
+                <h2 class="text-xl font-semibold text-ink line-clamp-2"><%= @featured_product["title"] %></h2>
+                <p class="text-sm text-slate-500 line-clamp-2"><%= truncate(@featured_product["description"], length: 140) %></p>
+                <div class="flex items-center justify-between">
+                  <p class="text-2xl font-semibold text-ink"><%= number_to_currency(@featured_product["price"], precision: 2) %></p>
+                  <a href="<%= product_path(@featured_product["id"]) %>" class="inline-flex items-center gap-2 rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand hover:bg-brand hover:text-white transition">
+                    <span data-i18n data-i18n-en="View" data-i18n-th="ดูรายละเอียด">View</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @trending_categories.present? %>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="collections">
+        <% @trending_categories.each do |category| %>
+          <div class="rounded-3xl border border-slate-100 bg-white/80 p-6 shadow-sm">
+            <p class="text-xs uppercase tracking-[0.35em] text-brand"><%= category[:name].to_s.titleize %></p>
+            <p class="mt-3 text-2xl font-semibold text-ink"><%= category[:count] %> <span class="text-sm font-medium text-slate-400" data-i18n data-i18n-en="styles" data-i18n-th="แบบ">styles</span></p>
+            <p class="mt-2 text-sm text-slate-500" data-i18n data-i18n-en="Hand-picked for modern Thai lifestyles." data-i18n-th="คัดสรรเพื่อไลฟ์สไตล์คนไทยยุคใหม่">Hand-picked for modern Thai lifestyles.</p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @error.present? %>
+      <div class="bg-white border border-red-200 text-red-600 px-6 py-6 rounded-3xl text-center shadow-sm">
+        <p class="font-medium"><%= @error %></p>
+        <p class="text-sm text-red-400 mt-2" data-i18n data-i18n-en="Please refresh or try again later." data-i18n-th="โปรดรีเฟรชหรือกลับมาใหม่อีกครั้ง">Please refresh or try again later.</p>
+      </div>
+    <% elsif @products.blank? %>
+      <div class="bg-white border border-slate-200 px-6 py-10 rounded-3xl text-center shadow-sm">
+        <p class="text-lg font-medium text-ink" data-i18n data-i18n-en="No products available right now." data-i18n-th="ขณะนี้ยังไม่มีสินค้า">No products available right now.</p>
+        <p class="text-sm text-slate-500 mt-2" data-i18n data-i18n-en="Check back soon as we refresh the lineup." data-i18n-th="ลองกลับมาใหม่เร็วๆ นี้ เรากำลังอัปเดตสินค้า">Check back soon as we refresh the lineup.</p>
+      </div>
+    <% else %>
+      <div class="space-y-10">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Featured arrivals" data-i18n-th="สินค้าใหม่แนะนำ">Featured arrivals</h2>
+            <p class="text-sm text-slate-500" data-i18n data-i18n-en="Hover for smooth animations and quick previews." data-i18n-th="เลื่อนเมาส์เพื่อชมแอนิเมชันและพรีวิวอย่างนุ่มนวล">Hover for smooth animations and quick previews.</p>
+          </div>
+          <p class="text-sm text-slate-500" data-i18n data-i18n-en="Showing" data-i18n-th="แสดง">Showing</p>
+          <p class="text-sm font-semibold text-brand"><%= @products.size %> <span class="font-normal text-slate-500" data-i18n data-i18n-en="items" data-i18n-th="รายการ">items</span></p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6" data-controller="scroll" data-action="mouseenter->scroll#pause mouseleave->scroll#resume">
+          <% @products.each_with_index do |product, index| %>
+            <article class="group relative bg-white rounded-[30px] overflow-hidden border border-transparent shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-card">
+              <div class="absolute inset-x-4 top-4 flex items-center justify-between text-[10px] uppercase tracking-[0.35em] text-slate-400">
+                <span><%= product["category"].to_s.titleize %></span>
+                <span>#<%= format("%02d", index + 1) %></span>
+              </div>
+              <div class="aspect-[4/5] bg-brand/5 flex items-center justify-center p-6">
+                <img src="<%= product["image"] %>" alt="<%= product["title"] %>" class="h-full object-contain transition-transform duration-500 ease-out group-hover:scale-105 group-hover:rotate-1">
+              </div>
+              <div class="flex flex-col gap-3 p-6">
+                <h3 class="text-lg font-semibold text-ink line-clamp-2 min-h-[3.5rem]"><%= product["title"] %></h3>
+                <p class="text-sm text-slate-500 line-clamp-2 min-h-[2.75rem]"><%= truncate(product["description"], length: 120) %></p>
+                <div class="flex items-center justify-between pt-2">
+                  <p class="text-xl font-semibold text-ink"><%= number_to_currency(product["price"], precision: 2) %></p>
+                  <a href="<%= product_path(product["id"]) %>" class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-brand border border-brand/40 hover:bg-brand hover:text-white transition">
+                    <span data-i18n data-i18n-en="Details" data-i18n-th="รายละเอียด">Details</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @recommended_products.present? %>
+      <div class="space-y-6" id="recommendations">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Recommended for you" data-i18n-th="แนะนำสำหรับคุณ">Recommended for you</h2>
+            <p class="text-sm text-slate-500" data-i18n data-i18n-en="Selected based on what Thai shoppers are loving." data-i18n-th="เลือกตามกระแสที่คนไทยกำลังปลื้ม">Selected based on what Thai shoppers are loving.</p>
+          </div>
+          <a href="#ai-concierge" class="text-sm font-semibold text-brand hover:text-brand-dark" data-i18n data-i18n-en="Ask AI for a custom set" data-i18n-th="ถาม AI เพื่อชุดเฉพาะคุณ">Ask AI for a custom set</a>
+        </div>
+        <div class="flex gap-5 overflow-x-auto pb-4 snap-x" role="list">
+          <% @recommended_products.each do |product| %>
+            <article role="listitem" class="min-w-[260px] snap-center rounded-3xl border border-slate-100 bg-white/80 p-5 shadow-sm transition hover:shadow-card hover:-translate-y-1">
+              <div class="aspect-square rounded-2xl bg-brand/5 flex items-center justify-center mb-4 overflow-hidden">
+                <img src="<%= product["image"] %>" alt="<%= product["title"] %>" class="h-full object-contain transition-transform duration-500 ease-out hover:scale-105">
+              </div>
+              <h3 class="text-base font-semibold text-ink line-clamp-2 h-12"><%= product["title"] %></h3>
+              <p class="mt-2 text-sm text-slate-500 line-clamp-2"><%= truncate(product["description"], length: 90) %></p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-lg font-semibold text-ink"><%= number_to_currency(product["price"], precision: 2) %></p>
+                <a href="<%= product_path(product["id"]) %>" class="text-sm font-semibold text-brand hover:text-brand-dark">
+                  <span data-i18n data-i18n-en="Shop" data-i18n-th="ซื้อเลย">Shop</span>
+                </a>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="grid gap-6 lg:grid-cols-2" id="quick-actions">
+      <div class="rounded-3xl border border-slate-100 bg-white/90 p-6 shadow-sm space-y-6">
+        <header class="space-y-2">
+          <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Quick actions" data-i18n-th="เมนูลัด">Quick actions</h2>
+          <p class="text-sm text-slate-500" data-i18n data-i18n-en="Manage your journey in a single tap." data-i18n-th="จัดการทุกขั้นตอนเพียงปลายนิ้ว">Manage your journey in a single tap.</p>
+        </header>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <button type="button" class="flex items-center gap-3 rounded-2xl border border-brand/30 bg-brand/10 px-4 py-3 text-left transition hover:bg-brand/20" data-modal-trigger="login-modal">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 19.5a7.5 7.5 0 0 1 15 0" />
+              </svg>
+            </span>
+            <span class="space-y-1">
+              <span class="block text-sm font-semibold text-ink" data-i18n data-i18n-en="Login" data-i18n-th="เข้าสู่ระบบ">Login</span>
+              <span class="block text-xs text-slate-500" data-i18n data-i18n-en="Sync rewards &amp; favorites" data-i18n-th="เชื่อมเหรียญและรายการโปรด">Sync rewards &amp; favorites</span>
+            </span>
+          </button>
+          <button type="button" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-brand hover:shadow" data-modal-trigger="topup-modal">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white shadow-glow">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </span>
+            <span class="space-y-1">
+              <span class="block text-sm font-semibold text-ink" data-i18n data-i18n-en="Top up" data-i18n-th="เติมเงิน">Top up</span>
+              <span class="block text-xs text-slate-500" data-i18n data-i18n-en="PromptPay &amp; Thai banks" data-i18n-th="พร้อมเพย์และธนาคาร">PromptPay &amp; Thai banks</span>
+            </span>
+          </button>
+          <button type="button" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-brand hover:shadow" data-modal-trigger="admin-modal">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m3 3 1.664 13.312A2.25 2.25 0 0 0 6.9 18h10.2a2.25 2.25 0 0 0 2.236-1.688L21 3" />
+              </svg>
+            </span>
+            <span class="space-y-1">
+              <span class="block text-sm font-semibold text-ink" data-i18n data-i18n-en="Admin" data-i18n-th="แอดมิน">Admin</span>
+              <span class="block text-xs text-slate-500" data-i18n data-i18n-en="Realtime snapshot" data-i18n-th="สรุปภาพรวมทันที">Realtime snapshot</span>
+            </span>
+          </button>
+          <a href="#ai-concierge" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-brand hover:shadow">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6.75 6.75 0 0 0 6.75-6.75V5.25L12 3 5.25 5.25v6.75A6.75 6.75 0 0 0 12 18.75Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 10.5h.008v.008H9V10.5Zm3 0h.008v.008H12V10.5Zm3 0h.008v.008H15V10.5ZM9 14.25h6" />
+              </svg>
+            </span>
+            <span class="space-y-1">
+              <span class="block text-sm font-semibold text-ink" data-i18n data-i18n-en="AI consult" data-i18n-th="ที่ปรึกษา AI">AI consult</span>
+              <span class="block text-xs text-slate-500" data-i18n data-i18n-en="Ask style or payment tips" data-i18n-th="ถามสไตล์หรือการชำระเงิน">Ask style or payment tips</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-brand/30 bg-brand/10 p-6 shadow-sm space-y-6" id="payments">
+        <header class="space-y-2">
+          <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Seamless payments" data-i18n-th="จ่ายง่าย">Seamless payments</h2>
+          <p class="text-sm text-slate-600" data-i18n data-i18n-en="Choose credit cards, PromptPay QR, or pay later with 0% installments." data-i18n-th="เลือกจ่ายด้วยบัตรเครดิต พร้อมเพย์ หรือผ่อน 0% ก็ได้">Choose credit cards, PromptPay QR, or pay later with 0% installments.</p>
+        </header>
+        <div class="grid gap-4">
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <p class="text-sm font-semibold text-ink" data-i18n data-i18n-en="Lightning checkout" data-i18n-th="ชำระเงินไว">Lightning checkout</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="Autofill Thai addresses and save favorite cards securely." data-i18n-th="กรอกที่อยู่ไทยอัตโนมัติและบันทึกบัตรได้อย่างปลอดภัย">Autofill Thai addresses and save favorite cards securely.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <p class="text-sm font-semibold text-ink" data-i18n data-i18n-en="PromptPay ready" data-i18n-th="รองรับพร้อมเพย์">PromptPay ready</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="Scan or upload QR with instant confirmation." data-i18n-th="สแกนหรืออัปโหลดคิวอาร์และยืนยันได้ทันที">Scan or upload QR with instant confirmation.</p>
+          </div>
+          <div class="rounded-2xl bg-white p-4 shadow-sm">
+            <p class="text-sm font-semibold text-ink" data-i18n data-i18n-en="Split bill" data-i18n-th="หารจ่าย">Split bill</p>
+            <p class="text-xs text-slate-500" data-i18n data-i18n-en="Share SupraPay links with friends and family." data-i18n-th="แชร์ลิงก์ SupraPay กับเพื่อนและครอบครัว">Share SupraPay links with friends and family.</p>
+          </div>
+        </div>
+        <button type="button" class="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-black transition" data-modal-trigger="topup-modal">
+          <span data-i18n data-i18n-en="Activate SupraPay" data-i18n-th="เปิดใช้งาน SupraPay">Activate SupraPay</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.75fr)] items-start" id="ai-concierge">
+      <div class="rounded-3xl border border-slate-100 bg-white/90 p-6 shadow-sm space-y-6">
+        <header class="space-y-2">
+          <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="AI Personal Shopper" data-i18n-th="ผู้ช่วยช้อปปิ้ง AI">AI Personal Shopper</h2>
+          <p class="text-sm text-slate-500" data-i18n data-i18n-en="Ask anything about sizing, gifting, or styling in Thai or English." data-i18n-th="ถามได้ทุกเรื่องเกี่ยวกับไซซ์ ของขวัญ หรือสไตลิ่ง ทั้งไทยและอังกฤษ">Ask anything about sizing, gifting, or styling in Thai or English.</p>
+        </header>
+        <div class="space-y-4">
+          <div id="ai-consult-thread" class="grid gap-3 max-h-72 overflow-y-auto pr-2">
+            <div class="flex justify-start">
+              <div class="max-w-[80%] rounded-3xl bg-white px-4 py-3 text-sm text-ink shadow-sm border border-brand/10" data-i18n data-i18n-en="สวัสดีค่ะ ฉันคือ Supra Concierge พร้อมช่วยเลือกสินค้าให้คุณ" data-i18n-th="สวัสดีค่ะ ฉันคือ Supra Concierge พร้อมช่วยเลือกสินค้าให้คุณ">สวัสดีค่ะ ฉันคือ Supra Concierge พร้อมช่วยเลือกสินค้าให้คุณ</div>
+            </div>
+          </div>
+          <div id="ai-consult-thinking" class="hidden text-xs text-slate-400">
+            <span data-i18n data-i18n-en="Thinking..." data-i18n-th="กำลังคิด...">Thinking...</span>
+          </div>
+          <form id="ai-consult-form" class="flex items-center gap-3 rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm">
+            <input type="text" name="message" class="flex-1 border-none bg-transparent text-sm text-ink focus:outline-none" placeholder="Ask in Thai or English" data-i18n data-i18n-en="Ask in Thai or English" data-i18n-th="ถามเป็นไทยหรืออังกฤษ" autocomplete="off">
+            <button type="submit" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand text-white shadow-glow hover:bg-brand-dark transition" aria-label="Send message">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5 20.25 12 3.75 19.5l4.5-7.5-4.5-7.5Z" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-brand/30 bg-brand/10 p-6 shadow-sm space-y-6">
+        <header class="space-y-2">
+          <h3 class="text-xl font-semibold text-ink" data-i18n data-i18n-en="Membership perks" data-i18n-th="สิทธิพิเศษสมาชิก">Membership perks</h3>
+          <p class="text-sm text-slate-500" data-i18n data-i18n-en="Designed to keep Thai shoppers coming back." data-i18n-th="ออกแบบเพื่อให้คนไทยอยากกลับมาช้อปอีก">Designed to keep Thai shoppers coming back.</p>
+        </header>
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand shadow-sm">1</span>
+            <span data-i18n data-i18n-en="Double coins on every payday weekend." data-i18n-th="รับเหรียญคูณสองทุกสุดสัปดาห์เงินเดือนออก">Double coins on every payday weekend.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand shadow-sm">2</span>
+            <span data-i18n data-i18n-en="Exclusive drops announced via LINE OA." data-i18n-th="ปล่อยสินค้าเอ็กซ์คลูซีฟผ่าน LINE OA">Exclusive drops announced via LINE OA.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand shadow-sm">3</span>
+            <span data-i18n data-i18n-en="Free alterations for Bangkok shoppers." data-i18n-th="บริการปรับแก้ฟรีสำหรับลูกค้ากรุงเทพ">Free alterations for Bangkok shoppers.</span>
+          </li>
+        </ul>
+        <button type="button" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand border border-brand/40 hover:bg-brand hover:text-white transition" data-modal-trigger="login-modal">
+          <span data-i18n data-i18n-en="Unlock perks" data-i18n-th="ปลดล็อกสิทธิ์">Unlock perks</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render "shared/loyalty_banner" %>
+<%= render "shared/footer_links" %>
