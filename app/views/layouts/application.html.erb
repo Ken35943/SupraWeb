@@ -28,17 +28,34 @@
           extend: {
             colors: {
               brand: {
-                DEFAULT: "#F4B400",
-                dark: "#D69E00"
+                DEFAULT: "#6366F1",
+                dark: "#4F46E5",
+                soft: "#EEF2FF"
               },
-              ink: "#1F2933",
-              mist: "#F7F4EF"
+              ink: "#0F172A",
+              mist: "#F8FAFC",
+              accent: "#F97316"
             },
             fontFamily: {
-              sans: ["'Plus Jakarta Sans'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "sans-serif"]
+              sans: ["'Plus Jakarta Sans'", "'Sarabun'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "sans-serif"]
             },
             boxShadow: {
-              card: "0 25px 50px -12px rgba(15, 23, 42, 0.15)"
+              card: "0 35px 60px -15px rgba(15, 23, 42, 0.25)",
+              glow: "0 20px 45px -12px rgba(79, 70, 229, 0.35)"
+            },
+            animation: {
+              float: "float 8s ease-in-out infinite",
+              pulsefast: "pulsefast 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-14px)" }
+              },
+              pulsefast: {
+                "0%, 100%": { opacity: "1" },
+                "50%": { opacity: "0.45" }
+              }
             }
           }
         }
@@ -50,9 +67,121 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   </head>
 
-  <body class="bg-mist min-h-screen text-ink font-sans antialiased">
+  <body class="bg-mist min-h-screen text-ink font-sans antialiased relative" data-app-shell>
+    <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[620px] overflow-hidden">
+      <div class="absolute left-1/2 -translate-x-1/2 top-[-320px] aspect-[5/3] w-[120vw] rounded-full bg-gradient-to-br from-brand/40 via-brand/20 to-accent/10 blur-3xl opacity-70"></div>
+    </div>
+
     <main class="min-h-screen">
       <%= yield %>
     </main>
+
+    <%= render "shared/experience_portal" %>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const languageButtons = document.querySelectorAll("[data-language-toggle]");
+        const modalTriggers = document.querySelectorAll("[data-modal-trigger]");
+        const modalClosers = document.querySelectorAll("[data-modal-close]");
+        const body = document.body;
+        const storedLanguage = window.localStorage.getItem("ydp-language") || "en";
+
+        const updateLanguage = (language) => {
+          document.documentElement.lang = language === "th" ? "th" : "en";
+          document.querySelectorAll("[data-i18n]").forEach((node) => {
+            const key = node.dataset.i18n;
+            const thai = node.dataset.i18nTh;
+            const english = node.dataset.i18nEn;
+            const value = language === "th" ? thai : english;
+            if (!value) return;
+            if (node instanceof HTMLInputElement || node instanceof HTMLTextAreaElement) {
+              node.placeholder = value;
+            } else {
+              node.textContent = value;
+            }
+          });
+          languageButtons.forEach((button) => {
+            button.dataset.languageCurrent = language;
+            button.querySelectorAll("[data-language-label]").forEach((labelNode) => {
+              const label = language === "th" ? labelNode.dataset.languageLabelTh : labelNode.dataset.languageLabelEn;
+              if (label) labelNode.textContent = label;
+            });
+          });
+          window.localStorage.setItem("ydp-language", language);
+        };
+
+        updateLanguage(storedLanguage);
+
+        languageButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const nextLanguage = button.dataset.languageCurrent === "th" ? "en" : "th";
+            updateLanguage(nextLanguage);
+          });
+        });
+
+        const toggleModal = (identifier, shouldOpen) => {
+          const modal = document.getElementById(identifier);
+          if (!modal) return;
+          modal.classList.toggle("hidden", !shouldOpen);
+          modal.classList.toggle("flex", shouldOpen);
+          body.classList.toggle("overflow-hidden", shouldOpen);
+          if (shouldOpen) {
+            modal.querySelectorAll("[autofocus]").forEach((input) => input.focus());
+          }
+        };
+
+        modalTriggers.forEach((trigger) => {
+          trigger.addEventListener("click", () => toggleModal(trigger.dataset.modalTrigger, true));
+        });
+
+        modalClosers.forEach((closer) => {
+          closer.addEventListener("click", () => toggleModal(closer.dataset.modalClose, false));
+        });
+
+        document.querySelectorAll("[data-modal]").forEach((modal) => {
+          modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              toggleModal(modal.id, false);
+            }
+          });
+        });
+
+        const chatForm = document.getElementById("ai-consult-form");
+        if (chatForm) {
+          const input = chatForm.querySelector("input[name='message']");
+          const conversation = document.getElementById("ai-consult-thread");
+          const thinking = document.getElementById("ai-consult-thinking");
+          const sampleReplies = [
+            "ฉันแนะนำให้จับคู่สินค้าชิ้นนี้กับแจ็คเก็ตโทนสีอบอุ่นเพื่อให้ลุคสบายแต่ยังดูหรูหรา",
+            "จากรีวิวล่าสุด ลูกค้าชอบเนื้อผ้าที่ระบายอากาศได้ดี เหมาะกับอากาศเมืองไทย",
+            "ขนาดที่ได้รับความนิยมคือ M หากต้องการใส่สบายๆ แนะนำเพิ่มหนึ่งไซส์",
+            "สินค้านี้กำลังลด 15% หากชำระด้วย SupraPay ภายในวันนี้"
+          ];
+
+          chatForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const message = input.value.trim();
+            if (!message) return;
+            const userBubble = document.createElement("div");
+            userBubble.className = "flex justify-end";
+            userBubble.innerHTML = `<div class="max-w-[70%] rounded-3xl bg-brand text-white px-4 py-3 text-sm shadow-glow">${message}</div>`;
+            conversation.appendChild(userBubble);
+            input.value = "";
+            thinking.classList.remove("hidden");
+            conversation.scrollTop = conversation.scrollHeight;
+
+            setTimeout(() => {
+              const reply = sampleReplies[Math.floor(Math.random() * sampleReplies.length)];
+              const aiBubble = document.createElement("div");
+              aiBubble.className = "flex justify-start";
+              aiBubble.innerHTML = `<div class=\"max-w-[80%] rounded-3xl bg-white px-4 py-3 text-sm text-ink shadow-sm border border-brand/10\">${reply}</div>`;
+              conversation.appendChild(aiBubble);
+              thinking.classList.add("hidden");
+              conversation.scrollTop = conversation.scrollHeight;
+            }, 900);
+          });
+        }
+      });
+    </script>
   </body>
 </html>
