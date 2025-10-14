@@ -17,11 +17,42 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: "#F4B400",
+                dark: "#D69E00"
+              },
+              ink: "#1F2933",
+              mist: "#F7F4EF"
+            },
+            fontFamily: {
+              sans: ["'Plus Jakarta Sans'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "sans-serif"]
+            },
+            boxShadow: {
+              card: "0 25px 50px -12px rgba(15, 23, 42, 0.15)"
+            }
+          }
+        }
+      };
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
+    <%# Includes all stylesheet files in app/assets/stylesheets for any custom overrides %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-mist min-h-screen text-ink font-sans antialiased">
+    <main class="min-h-screen">
+      <%= yield %>
+    </main>
   </body>
 </html>
