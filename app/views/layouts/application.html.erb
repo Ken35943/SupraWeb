@@ -28,13 +28,15 @@
           extend: {
             colors: {
               brand: {
-                DEFAULT: "#6366F1",
-                dark: "#4F46E5",
-                soft: "#EEF2FF"
+                DEFAULT: "#FF5A5F",
+                dark: "#E5484D",
+                soft: "#FFE9EA"
               },
-              ink: "#0F172A",
-              mist: "#F8FAFC",
-              accent: "#F97316"
+              ink: "#0B1120",
+              mist: "#F3F6FF",
+              accent: "#10B981",
+              gold: "#FBBF24",
+              night: "#1F2937"
             },
             fontFamily: {
               sans: ["'Plus Jakarta Sans'", "'Sarabun'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "sans-serif"]
@@ -67,9 +69,9 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   </head>
 
-  <body class="bg-mist min-h-screen text-ink font-sans antialiased relative" data-app-shell>
+  <body class="bg-gradient-to-b from-mist via-white to-white min-h-screen text-ink font-sans antialiased relative" data-app-shell>
     <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[620px] overflow-hidden">
-      <div class="absolute left-1/2 -translate-x-1/2 top-[-320px] aspect-[5/3] w-[120vw] rounded-full bg-gradient-to-br from-brand/40 via-brand/20 to-accent/10 blur-3xl opacity-70"></div>
+      <div class="absolute left-1/2 -translate-x-1/2 top-[-320px] aspect-[5/3] w-[120vw] rounded-full bg-gradient-to-br from-brand/50 via-gold/20 to-accent/20 blur-3xl opacity-80"></div>
     </div>
 
     <main class="min-h-screen">
@@ -83,6 +85,7 @@
         const languageButtons = document.querySelectorAll("[data-language-toggle]");
         const modalTriggers = document.querySelectorAll("[data-modal-trigger]");
         const modalClosers = document.querySelectorAll("[data-modal-close]");
+        const countdownTargets = document.querySelectorAll("[data-countdown-end]");
         const body = document.body;
         const storedLanguage = window.localStorage.getItem("ydp-language") || "en";
 
@@ -144,6 +147,33 @@
               toggleModal(modal.id, false);
             }
           });
+        });
+
+        countdownTargets.forEach((container) => {
+          const endTime = container.dataset.countdownEnd;
+          if (!endTime) return;
+          const displayNodes = container.querySelectorAll("[data-countdown-display]");
+          if (!displayNodes.length) return;
+          const end = new Date(endTime).getTime();
+
+          let intervalId;
+
+          const renderCountdown = () => {
+            const now = Date.now();
+            const distance = Math.max(end - now, 0);
+            const totalSeconds = Math.floor(distance / 1000);
+            const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
+            const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+            const seconds = String(totalSeconds % 60).padStart(2, "0");
+            const formatted = `${hours}:${minutes}:${seconds}`;
+            displayNodes.forEach((node) => (node.textContent = formatted));
+            if (distance <= 0) {
+              clearInterval(intervalId);
+            }
+          };
+
+          renderCountdown();
+          intervalId = window.setInterval(renderCountdown, 1000);
         });
 
         const chatForm = document.getElementById("ai-consult-form");

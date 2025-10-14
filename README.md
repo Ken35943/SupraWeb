@@ -3,10 +3,10 @@
 This Rails application implements a responsive "Browse All Products" experience for the Young Developer Power (Full-stack Track) curriculum. The page pulls catalog data straight from the public [Fake Store API](https://fakestoreapi.com/products) and renders it with Tailwind CSS to provide a clean, mobile-friendly layout without persisting anything in a local database.
 
 The latest refresh introduces:
-- A premium storefront theme with animated hero modules and product cards optimised for both desktop and mobile shoppers.
+- A premium storefront theme with higher-contrast branding, animated hero modules, and flash-sale storytelling tuned for desktop and mobile shoppers.
 - Thai/English language toggling, ensuring copy and placeholders adapt instantly for local customers.
-- Lightweight flows for sign-in, admin insights, wallet top ups, and payment education—plus an interactive AI concierge mockup for quick Q&A.
-- Recommendation rails that surface trending products drawn directly from the live API response.
+- Lightweight flows for sign-in, a live dashboard with traffic/revenue counters, wallet top ups, and payment education—plus an interactive AI concierge mockup for quick Q&A.
+- Recommendation rails and timed promotions that surface trending products drawn directly from the live API response.
 
 ## Why Ruby on Rails?
 

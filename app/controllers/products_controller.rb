@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
     available_for_recommendations = @featured_product.present? ? @products.reject { |product| product["id"] == @featured_product["id"] } : @products
     sample_size = [available_for_recommendations.size, 8].min
     @recommended_products = available_for_recommendations.sample(sample_size)
+    flash_sale_pool = available_for_recommendations.presence || @products
+    flash_sale_count = [flash_sale_pool.size, 3].min
+    @flash_sale_products = flash_sale_count.zero? ? [] : flash_sale_pool.sample(flash_sale_count)
+    @flash_sale_deadline = @flash_sale_products.present? ? 45.minutes.from_now.iso8601 : nil
     @trending_categories = @products.group_by { |product| product["category"] }
                                .map { |category, items| { name: category, count: items.count } }
                                .sort_by { |category| -category[:count] }
@@ -20,6 +24,8 @@ class ProductsController < ApplicationController
     @products = []
     @featured_product = nil
     @recommended_products = []
+    @flash_sale_products = []
+    @flash_sale_deadline = nil
     @trending_categories = []
   end
 

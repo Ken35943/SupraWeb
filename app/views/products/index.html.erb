@@ -6,7 +6,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-12">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center">
       <div class="space-y-6" id="hero">
-        <p class="inline-flex items-center gap-2 rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Young Developer Power" data-i18n-th="พลังนักพัฒนารุ่นใหม่">Young Developer Power</p>
+        <p class="inline-flex items-center gap-2 rounded-full bg-brand/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Young Developer Power" data-i18n-th="พลังนักพัฒนารุ่นใหม่">Young Developer Power</p>
         <h1 class="text-3xl md:text-5xl font-semibold leading-tight text-ink" data-i18n data-i18n-en="Shop the future of Thai tech lifestyle" data-i18n-th="ช้อปไลฟ์สไตล์เทคสุดล้ำเพื่อคนไทย">Shop the future of Thai tech lifestyle</h1>
         <p class="text-slate-600 text-base md:text-lg max-w-xl" data-i18n data-i18n-en="Curated essentials, AI-powered styling, and seamless payments tuned for shoppers in Thailand." data-i18n-th="คัดสรรไอเท็มจำเป็น สไตลิ่งด้วย AI และระบบชำระเงินไร้รอยต่อออกแบบมาเพื่อคนไทย">Curated essentials, AI-powered styling, and seamless payments tuned for shoppers in Thailand.</p>
         <div class="flex flex-wrap items-center gap-4">
@@ -16,7 +16,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
           </button>
-          <a href="#collections" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-ink/80 hover:text-ink hover:border-brand transition">
+          <a href="#collections" class="inline-flex items-center gap-2 rounded-full border border-brand/30 px-6 py-3 text-sm font-semibold text-brand hover:bg-brand hover:text-white transition">
             <span data-i18n data-i18n-en="Explore catalog" data-i18n-th="ดูสินค้าทั้งหมด">Explore catalog</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
@@ -24,22 +24,22 @@
           </a>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-sm">
-          <div class="rounded-2xl border border-brand/30 bg-white/80 p-4 shadow-sm">
+          <div class="rounded-2xl border border-brand/30 bg-white p-4 shadow-lg shadow-brand/10">
             <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Members" data-i18n-th="สมาชิก">Members</p>
             <p class="mt-2 text-2xl font-semibold text-ink">58K+</p>
             <p class="text-xs text-slate-500" data-i18n data-i18n-en="Nationwide" data-i18n-th="ทั่วประเทศ">Nationwide</p>
           </div>
-          <div class="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+          <div class="rounded-2xl border border-white/0 bg-white p-4 shadow-lg shadow-brand/5">
             <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Delivery" data-i18n-th="จัดส่ง">Delivery</p>
             <p class="mt-2 text-2xl font-semibold text-ink" data-i18n data-i18n-en="Next-day" data-i18n-th="วันถัดไป">Next-day</p>
             <p class="text-xs text-slate-500" data-i18n data-i18n-en="Bangkok &amp; Metro" data-i18n-th="กรุงเทพฯ และปริมณฑล">Bangkok &amp; Metro</p>
           </div>
-          <div class="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+          <div class="rounded-2xl border border-white/0 bg-white p-4 shadow-lg shadow-brand/5">
             <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Reward" data-i18n-th="รางวัล">Reward</p>
             <p class="mt-2 text-2xl font-semibold text-ink">2x</p>
             <p class="text-xs text-slate-500" data-i18n data-i18n-en="Coins this week" data-i18n-th="เหรียญพิเศษสัปดาห์นี้">Coins this week</p>
           </div>
-          <div class="rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm">
+          <div class="rounded-2xl border border-white/0 bg-white p-4 shadow-lg shadow-brand/5">
             <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Support" data-i18n-th="ช่วยเหลือ">Support</p>
             <p class="mt-2 text-2xl font-semibold text-ink" data-i18n data-i18n-en="24/7" data-i18n-th="24/7">24/7</p>
             <p class="text-xs text-slate-500" data-i18n data-i18n-en="AI Concierge" data-i18n-th="คอนเซียร์จ AI">AI Concierge</p>
@@ -48,12 +48,12 @@
       </div>
       <% if @featured_product.present? %>
         <div class="relative">
-          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand/20 via-transparent to-brand/10 blur-3xl rounded-full"></div>
-          <article class="group relative overflow-hidden rounded-[32px] border border-white/40 bg-white/90 shadow-glow backdrop-blur supports-[backdrop-filter]:bg-white/70">
+          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand/30 via-gold/20 to-accent/20 blur-3xl rounded-full"></div>
+          <article class="group relative overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-xl">
             <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand via-accent to-brand"></div>
             <div class="flex flex-col">
-              <div class="relative aspect-[4/5] overflow-hidden bg-brand/10">
-                <img src="<%= @featured_product["image"] %>" alt="<%= @featured_product["title"] %>" class="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105">
+              <div class="relative aspect-[4/5] overflow-hidden bg-brand/5">
+                <img src="<%= @featured_product["image"] %>" alt="<%= @featured_product["title"] %>" class="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-1">
               </div>
               <div class="p-6 space-y-4">
                 <p class="text-xs uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Hero pick" data-i18n-th="สินค้าเด่น">Hero pick</p>
@@ -78,13 +78,58 @@
     <% if @trending_categories.present? %>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" id="collections">
         <% @trending_categories.each do |category| %>
-          <div class="rounded-3xl border border-slate-100 bg-white/80 p-6 shadow-sm">
+          <div class="rounded-3xl border border-white/0 bg-white p-6 shadow-lg shadow-brand/5">
             <p class="text-xs uppercase tracking-[0.35em] text-brand"><%= category[:name].to_s.titleize %></p>
             <p class="mt-3 text-2xl font-semibold text-ink"><%= category[:count] %> <span class="text-sm font-medium text-slate-400" data-i18n data-i18n-en="styles" data-i18n-th="แบบ">styles</span></p>
             <p class="mt-2 text-sm text-slate-500" data-i18n data-i18n-en="Hand-picked for modern Thai lifestyles." data-i18n-th="คัดสรรเพื่อไลฟ์สไตล์คนไทยยุคใหม่">Hand-picked for modern Thai lifestyles.</p>
           </div>
         <% end %>
       </div>
+    <% end %>
+
+    <% if @flash_sale_products.present? && @flash_sale_deadline.present? %>
+      <section id="flash-sale" class="rounded-[32px] bg-night text-white p-6 md:p-10 shadow-xl shadow-night/30" data-countdown-end="<%= @flash_sale_deadline %>">
+        <div class="flex flex-wrap items-center justify-between gap-6">
+          <div class="space-y-3 max-w-xl">
+            <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-gold" data-i18n data-i18n-en="Flash sale" data-i18n-th="แฟลชเซล">Flash sale</p>
+            <h2 class="text-3xl md:text-4xl font-semibold" data-i18n data-i18n-en="Midnight deals built for Thai shoppers" data-i18n-th="ดีลเที่ยงคืนเพื่อชาวช้อปไทย">Midnight deals built for Thai shoppers</h2>
+            <p class="text-sm md:text-base text-white/70" data-i18n data-i18n-en="Limited bundles drop every hour. Grab yours before the timer hits zero." data-i18n-th="ชุดลดราคามีจำนวนจำกัด รีบคว้าก่อนเวลาจะหมด">Limited bundles drop every hour. Grab yours before the timer hits zero.</p>
+          </div>
+          <div class="flex items-center gap-3 rounded-3xl bg-white/10 px-5 py-4 backdrop-blur">
+            <span class="text-xs font-semibold uppercase tracking-[0.35em] text-white/70" data-i18n data-i18n-en="Ends in" data-i18n-th="หมดเวลาใน">Ends in</span>
+            <span class="text-3xl md:text-4xl font-semibold text-gold" data-countdown-display>00:45:00</span>
+          </div>
+        </div>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <% @flash_sale_products.each do |product| %>
+            <% discount_rate = 0.18 %>
+            <% original_price = product["price"].to_f %>
+            <% discounted_price = original_price * (1 - discount_rate) %>
+            <article class="group rounded-3xl bg-white/5 p-5 shadow-lg shadow-black/20 transition hover:bg-white/10">
+              <div class="aspect-square rounded-2xl bg-white/10 flex items-center justify-center overflow-hidden">
+                <img src="<%= product["image"] %>" alt="<%= product["title"] %>" class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="mt-5 space-y-3">
+                <h3 class="text-lg font-semibold text-white line-clamp-2"><%= product["title"] %></h3>
+                <p class="text-sm text-white/70 line-clamp-2"><%= truncate(product["description"], length: 120) %></p>
+                <div class="flex items-baseline gap-3">
+                  <p class="text-2xl font-semibold text-gold"><%= number_to_currency(discounted_price, precision: 2) %></p>
+                  <p class="text-sm text-white/50 line-through"><%= number_to_currency(original_price, precision: 2) %></p>
+                  <span class="inline-flex items-center gap-1 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white shadow-md">
+                    -<%= (discount_rate * 100).to_i %>%
+                  </span>
+                </div>
+                <a href="<%= product_path(product["id"]) %>" class="inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-night transition hover:bg-white">
+                  <span data-i18n data-i18n-en="Shop deal" data-i18n-th="ซื้อดีลนี้">Shop deal</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      </section>
     <% end %>
 
     <% if @error.present? %>
@@ -147,8 +192,8 @@
         </div>
         <div class="flex gap-5 overflow-x-auto pb-4 snap-x" role="list">
           <% @recommended_products.each do |product| %>
-            <article role="listitem" class="min-w-[260px] snap-center rounded-3xl border border-slate-100 bg-white/80 p-5 shadow-sm transition hover:shadow-card hover:-translate-y-1">
-              <div class="aspect-square rounded-2xl bg-brand/5 flex items-center justify-center mb-4 overflow-hidden">
+            <article role="listitem" class="min-w-[260px] snap-center rounded-3xl border border-white/0 bg-white p-5 shadow-lg shadow-brand/10 transition hover:-translate-y-1 hover:shadow-card">
+              <div class="aspect-square rounded-2xl bg-brand/10 flex items-center justify-center mb-4 overflow-hidden">
                 <img src="<%= product["image"] %>" alt="<%= product["title"] %>" class="h-full object-contain transition-transform duration-500 ease-out hover:scale-105">
               </div>
               <h3 class="text-base font-semibold text-ink line-clamp-2 h-12"><%= product["title"] %></h3>
@@ -166,13 +211,13 @@
     <% end %>
 
     <div class="grid gap-6 lg:grid-cols-2" id="quick-actions">
-      <div class="rounded-3xl border border-slate-100 bg-white/90 p-6 shadow-sm space-y-6">
+      <div class="rounded-3xl border border-white/0 bg-white p-6 shadow-lg shadow-brand/5 space-y-6">
         <header class="space-y-2">
           <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Quick actions" data-i18n-th="เมนูลัด">Quick actions</h2>
           <p class="text-sm text-slate-500" data-i18n data-i18n-en="Manage your journey in a single tap." data-i18n-th="จัดการทุกขั้นตอนเพียงปลายนิ้ว">Manage your journey in a single tap.</p>
         </header>
         <div class="grid gap-4 sm:grid-cols-2">
-          <button type="button" class="flex items-center gap-3 rounded-2xl border border-brand/30 bg-brand/10 px-4 py-3 text-left transition hover:bg-brand/20" data-modal-trigger="login-modal">
+          <button type="button" class="flex items-center gap-3 rounded-2xl border border-brand/40 bg-brand/10 px-4 py-3 text-left transition hover:bg-brand/20" data-modal-trigger="login-modal">
             <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand shadow-sm">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 19.5a7.5 7.5 0 0 1 15 0" />
@@ -194,19 +239,19 @@
               <span class="block text-xs text-slate-500" data-i18n data-i18n-en="PromptPay &amp; Thai banks" data-i18n-th="พร้อมเพย์และธนาคาร">PromptPay &amp; Thai banks</span>
             </span>
           </button>
-          <button type="button" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-brand hover:shadow" data-modal-trigger="admin-modal">
+          <button type="button" class="flex items-center gap-3 rounded-2xl border border-brand/40 bg-brand/5 px-4 py-3 text-left transition hover:border-brand hover:bg-brand/10" data-modal-trigger="dashboard-modal">
             <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m3 3 1.664 13.312A2.25 2.25 0 0 0 6.9 18h10.2a2.25 2.25 0 0 0 2.236-1.688L21 3" />
               </svg>
             </span>
             <span class="space-y-1">
-              <span class="block text-sm font-semibold text-ink" data-i18n data-i18n-en="Admin" data-i18n-th="แอดมิน">Admin</span>
-              <span class="block text-xs text-slate-500" data-i18n data-i18n-en="Realtime snapshot" data-i18n-th="สรุปภาพรวมทันที">Realtime snapshot</span>
+              <span class="block text-sm font-semibold text-ink" data-i18n data-i18n-en="Dashboard" data-i18n-th="แดชบอร์ด">Dashboard</span>
+              <span class="block text-xs text-slate-500" data-i18n data-i18n-en="Visits • sales • promos" data-i18n-th="ทราฟฟิก • ยอดขาย • โปร">Visits • sales • promos</span>
             </span>
           </button>
-          <a href="#ai-concierge" class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-brand hover:shadow">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white">
+          <a href="#ai-concierge" class="flex items-center gap-3 rounded-2xl border border-accent/40 bg-accent/10 px-4 py-3 text-left transition hover:bg-accent/20">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-accent shadow-sm">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6.75 6.75 0 0 0 6.75-6.75V5.25L12 3 5.25 5.25v6.75A6.75 6.75 0 0 0 12 18.75Z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 10.5h.008v.008H9V10.5Zm3 0h.008v.008H12V10.5Zm3 0h.008v.008H15V10.5ZM9 14.25h6" />
