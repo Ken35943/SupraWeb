@@ -1,0 +1,135 @@
+<div id="login-modal" data-modal class="hidden fixed inset-0 z-[60] items-center justify-center px-4 py-8 bg-slate-900/60 backdrop-blur-sm">
+  <div class="w-full max-w-md rounded-3xl bg-white shadow-2xl p-8 space-y-6 relative">
+    <button type="button" class="absolute top-4 right-4 text-slate-400 hover:text-ink" data-modal-close="login-modal" aria-label="Close login modal">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <header class="space-y-2 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Welcome back" data-i18n-th="ยินดีต้อนรับกลับ">Welcome back</p>
+      <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Sign in to continue" data-i18n-th="เข้าสู่ระบบเพื่อไปต่อ">Sign in to continue</h2>
+      <p class="text-sm text-slate-500" data-i18n data-i18n-en="Unlock member perks, early drops, and lightning checkout." data-i18n-th="ปลดล็อกสิทธิพิเศษ สมาชิก เหมาะสำหรับการสั่งซื้อล่วงหน้าและชำระเงินรวดเร็ว">Unlock member perks, early drops, and lightning checkout.</p>
+    </header>
+    <form class="space-y-4">
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-ink" for="login-email" data-i18n data-i18n-en="Email" data-i18n-th="อีเมล">Email</label>
+        <input id="login-email" type="email" name="email" required autofocus class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm shadow-sm focus:border-brand focus:ring-2 focus:ring-brand/40" placeholder="you@example.com" data-i18n data-i18n-en="you@example.com" data-i18n-th="คุณ@example.com">
+      </div>
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-ink" for="login-password" data-i18n data-i18n-en="Password" data-i18n-th="รหัสผ่าน">Password</label>
+        <input id="login-password" type="password" name="password" required class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm shadow-sm focus:border-brand focus:ring-2 focus:ring-brand/40" placeholder="••••••••" data-i18n data-i18n-en="••••••••" data-i18n-th="••••••••">
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <label class="flex items-center gap-2 text-slate-500">
+          <input type="checkbox" class="rounded border-slate-300 text-brand focus:ring-brand" checked>
+          <span data-i18n data-i18n-en="Keep me signed in" data-i18n-th="จดจำการเข้าสู่ระบบ">Keep me signed in</span>
+        </label>
+        <button type="button" class="text-brand hover:text-brand-dark font-semibold" data-i18n data-i18n-en="Forgot?" data-i18n-th="ลืมรหัส?">Forgot?</button>
+      </div>
+      <button type="submit" class="w-full inline-flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-dark" data-i18n data-i18n-en="Sign In" data-i18n-th="เข้าสู่ระบบ">Sign In</button>
+    </form>
+    <p class="text-xs text-center text-slate-400" data-i18n data-i18n-en="Need help? Chat with our concierge 24/7." data-i18n-th="ต้องการความช่วยเหลือ? แชทกับคอนเซียร์จเราได้ตลอด 24 ชม.">Need help? Chat with our concierge 24/7.</p>
+  </div>
+</div>
+
+<div id="topup-modal" data-modal class="hidden fixed inset-0 z-[60] items-center justify-center px-4 py-8 bg-slate-900/60 backdrop-blur-sm">
+  <div class="w-full max-w-lg rounded-3xl bg-white shadow-2xl p-8 space-y-6 relative">
+    <button type="button" class="absolute top-4 right-4 text-slate-400 hover:text-ink" data-modal-close="topup-modal" aria-label="Close top up modal">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <header class="space-y-2 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="SupraPay" data-i18n-th="ซูปร้าเพย์">SupraPay</p>
+      <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Top up your wallet" data-i18n-th="เติมกระเป๋าเงินของคุณ">Top up your wallet</h2>
+      <p class="text-sm text-slate-500" data-i18n data-i18n-en="Instant reloads with local banks, credit cards, or PromptPay." data-i18n-th="เติมเงินรวดเร็ว รองรับทั้งธนาคารท้องถิ่น บัตรเครดิต และพร้อมเพย์">Instant reloads with local banks, credit cards, or PromptPay.</p>
+    </header>
+    <form class="grid gap-4 md:grid-cols-2">
+      <div class="md:col-span-2 space-y-2">
+        <label class="text-sm font-medium text-ink" for="topup-amount" data-i18n data-i18n-en="Amount" data-i18n-th="จำนวนเงิน">Amount</label>
+        <input id="topup-amount" type="number" min="100" step="50" class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm shadow-sm focus:border-brand focus:ring-2 focus:ring-brand/40" placeholder="1000" data-i18n data-i18n-en="1000" data-i18n-th="1000">
+      </div>
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-ink" for="topup-method" data-i18n data-i18n-en="Payment method" data-i18n-th="ช่องทางชำระ">Payment method</label>
+        <select id="topup-method" class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm shadow-sm focus:border-brand focus:ring-2 focus:ring-brand/40">
+          <option data-i18n data-i18n-en="PromptPay" data-i18n-th="พร้อมเพย์">PromptPay</option>
+          <option data-i18n data-i18n-en="SCB" data-i18n-th="ไทยพาณิชย์">SCB</option>
+          <option data-i18n data-i18n-en="Credit Card" data-i18n-th="บัตรเครดิต">Credit Card</option>
+        </select>
+      </div>
+      <div class="space-y-2">
+        <label class="text-sm font-medium text-ink" for="topup-ref" data-i18n data-i18n-en="Reference" data-i18n-th="หมายเลขอ้างอิง">Reference</label>
+        <input id="topup-ref" type="text" class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm shadow-sm focus:border-brand focus:ring-2 focus:ring-brand/40" placeholder="TRX-45192" data-i18n data-i18n-en="TRX-45192" data-i18n-th="TRX-45192">
+      </div>
+      <div class="md:col-span-2">
+        <button type="submit" class="w-full inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-ink/30 transition hover:bg-black" data-i18n data-i18n-en="Confirm top up" data-i18n-th="ยืนยันการเติมเงิน">Confirm top up</button>
+      </div>
+    </form>
+    <p class="text-xs text-center text-slate-400" data-i18n data-i18n-en="Protected by bank-grade encryption &amp; OTP verification." data-i18n-th="ปกป้องด้วยระบบเข้ารหัสระดับธนาคารและการยืนยัน OTP">Protected by bank-grade encryption &amp; OTP verification.</p>
+  </div>
+</div>
+
+<div id="dashboard-modal" data-modal class="hidden fixed inset-0 z-[60] items-center justify-center px-4 py-8 bg-slate-900/60 backdrop-blur-sm">
+  <div class="w-full max-w-2xl rounded-3xl bg-white shadow-2xl p-8 space-y-6 relative">
+    <button type="button" class="absolute top-4 right-4 text-slate-400 hover:text-ink" data-modal-close="dashboard-modal" aria-label="Close dashboard modal">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <header class="space-y-2">
+      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-brand" data-i18n data-i18n-en="Dashboard" data-i18n-th="แดชบอร์ด">Dashboard</p>
+      <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="Live store insights" data-i18n-th="ข้อมูลร้านค้าสด">Live store insights</h2>
+      <p class="text-sm text-slate-500" data-i18n data-i18n-en="Track visits, revenue, and time-sensitive promos without leaving the shop." data-i18n-th="ติดตามการเข้าชม รายได้ และโปรโมชันนับถอยหลังได้ทันที">Track visits, revenue, and time-sensitive promos without leaving the shop.</p>
+    </header>
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="rounded-2xl bg-brand/10 border border-brand/30 p-4">
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500" data-i18n data-i18n-en="Today's visitors" data-i18n-th="ผู้เข้าชมวันนี้">Today's visitors</p>
+        <p class="mt-2 text-2xl font-semibold text-ink">42,310</p>
+        <p class="text-xs text-brand-dark mt-1" data-i18n data-i18n-en="▲ 26% vs last week" data-i18n-th="▲ 26% เทียบสัปดาห์ก่อน">▲ 26% vs last week</p>
+      </div>
+      <div class="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500" data-i18n data-i18n-en="Orders completed" data-i18n-th="ออเดอร์สำเร็จ">Orders completed</p>
+        <p class="mt-2 text-2xl font-semibold text-ink">4,921</p>
+        <p class="text-xs text-slate-400 mt-1" data-i18n data-i18n-en="Conversion 11.6%" data-i18n-th="อัตราแปลง 11.6%">Conversion 11.6%</p>
+      </div>
+      <div class="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500" data-i18n data-i18n-en="Revenue today" data-i18n-th="รายได้วันนี้">Revenue today</p>
+        <p class="mt-2 text-2xl font-semibold text-ink">฿128,450</p>
+        <p class="text-xs text-slate-400 mt-1" data-i18n data-i18n-en="AOV ฿1,540" data-i18n-th="ยอดเฉลี่ยต่อออเดอร์ ฿1,540">AOV ฿1,540</p>
+      </div>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="rounded-2xl bg-white border border-slate-100 p-4 shadow-sm">
+        <h3 class="text-sm font-semibold text-ink" data-i18n data-i18n-en="Traffic &amp; baskets" data-i18n-th="การเข้าชมและตะกร้า">Traffic &amp; baskets</h3>
+        <div class="mt-3 grid gap-3 text-sm">
+          <div class="flex items-center justify-between">
+            <span data-i18n data-i18n-en="Live viewers" data-i18n-th="ผู้ชมขณะนี้">Live viewers</span>
+            <span class="inline-flex items-center gap-1 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">1,284</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span data-i18n data-i18n-en="Active carts" data-i18n-th="ตะกร้ากำลังสั่ง">Active carts</span>
+            <span>356</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span data-i18n data-i18n-en="Checkout queue" data-i18n-th="อยู่ระหว่างชำระ">Checkout queue</span>
+            <span>98</span>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl bg-brand/10 border border-brand/30 p-5" data-countdown-end="<%= 30.minutes.from_now.iso8601 %>">
+        <h3 class="text-sm font-semibold text-ink" data-i18n data-i18n-en="Live flash promo" data-i18n-th="โปรโมชันแฟลชสด">Live flash promo</h3>
+        <p class="mt-2 text-sm text-slate-600" data-i18n data-i18n-en="Countdown for our sunset sneakers bundle." data-i18n-th="นับถอยหลังสำหรับชุดรองเท้า Sunset สุดคุ้ม">Countdown for our sunset sneakers bundle.</p>
+        <div class="mt-4 flex items-center gap-3">
+          <div class="rounded-2xl bg-white px-4 py-3 text-center shadow-sm">
+            <p class="text-[10px] uppercase tracking-[0.35em] text-slate-500" data-i18n data-i18n-en="Time left" data-i18n-th="เวลาที่เหลือ">Time left</p>
+            <p class="mt-1 text-lg font-semibold text-brand" data-countdown-display>00:30:00</p>
+          </div>
+          <div class="text-sm text-slate-600 space-y-1">
+            <p data-i18n data-i18n-en="Savings" data-i18n-th="ส่วนลด">Savings <span class="font-semibold text-brand">฿450</span></p>
+            <p data-i18n data-i18n-en="Claimed" data-i18n-th="กดรับแล้ว">Claimed <span class="font-semibold">62%</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
