@@ -1,14 +1,59 @@
-<section class="bg-brand text-ink">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-    <div class="space-y-3 max-w-2xl">
-      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-ink/80">Join Our Club</p>
-      <h2 class="text-2xl md:text-3xl font-semibold">Join Our Club, Get 15% Off For Your Birthday</h2>
-      <p class="text-sm md:text-base text-ink/80">Stay in the loop with new arrivals, curated stories, and member-only perks delivered straight to your inbox.</p>
+<section class="relative overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-gradient-to-r from-brand via-rose-500 to-accent"></div>
+  <div aria-hidden="true" class="absolute -top-24 -left-20 h-56 w-56 rounded-full bg-white/20 blur-3xl"></div>
+  <div aria-hidden="true" class="absolute -bottom-16 -right-16 h-72 w-72 rounded-full bg-gold/30 blur-3xl"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,0.7fr)_minmax(0,0.3fr)] md:items-center">
+      <div class="space-y-4 text-white">
+        <span class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.35em] text-white/90">
+          Join Our Club
+        </span>
+        <h2 class="text-3xl md:text-4xl font-semibold leading-tight">Join Our Club, Get 15% Off For Your Birthday</h2>
+        <p class="text-sm md:text-base text-white/80 max-w-2xl">
+          Stay in the loop with new arrivals, curated stories, and member-only perks delivered straight to your inbox.
+        </p>
+        <dl class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 text-sm text-white/80">
+          <div class="rounded-2xl border border-white/30 bg-white/10 p-4">
+            <dt class="text-[11px] uppercase tracking-[0.35em] text-white/60">Members</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">58K+</dd>
+          </div>
+          <div class="rounded-2xl border border-white/30 bg-white/10 p-4">
+            <dt class="text-[11px] uppercase tracking-[0.35em] text-white/60">Special drops</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">Weekly</dd>
+          </div>
+          <div class="rounded-2xl border border-white/30 bg-white/10 p-4">
+            <dt class="text-[11px] uppercase tracking-[0.35em] text-white/60">Birthday boost</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">15% Off</dd>
+          </div>
+          <div class="rounded-2xl border border-white/30 bg-white/10 p-4">
+            <dt class="text-[11px] uppercase tracking-[0.35em] text-white/60">Free shipping</dt>
+            <dd class="mt-2 text-2xl font-semibold text-white">Nationwide</dd>
+          </div>
+        </dl>
+      </div>
+      <form class="w-full md:w-auto space-y-4 rounded-3xl bg-white/10 p-6 shadow-lg shadow-black/10 backdrop-blur" action="#" method="post">
+        <label for="loyalty-email" class="sr-only">Email address</label>
+        <input
+          id="loyalty-email"
+          type="email"
+          placeholder="Enter Email Address"
+          class="w-full rounded-2xl border border-white/40 bg-white/90 px-5 py-3 text-sm text-ink placeholder:text-ink/60 shadow-sm focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40 transition"
+          required
+        >
+        <button
+          type="submit"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-brand shadow-lg shadow-brand/20 transition hover:-translate-y-0.5 hover:bg-gold hover:text-night"
+        >
+          Subscribe
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+          </svg>
+        </button>
+        <p class="text-xs text-white/70 text-center">
+          No spam, just colourful perks and local surprises.
+        </p>
+      </form>
     </div>
-    <form class="w-full md:w-auto flex flex-col sm:flex-row gap-4 text-sm" action="#" method="post">
-      <label for="loyalty-email" class="sr-only">Email address</label>
-      <input id="loyalty-email" type="email" placeholder="Enter Email Address" class="w-full sm:w-72 rounded-full border border-black/10 bg-white/90 px-5 py-3 text-ink placeholder:text-ink/50 shadow-sm focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/30 transition" required>
-      <button type="submit" class="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 font-semibold text-white shadow-lg shadow-black/10 transition hover:bg-black hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">Subscribe</button>
-    </form>
   </div>
 </section>
