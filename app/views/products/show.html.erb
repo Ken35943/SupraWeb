@@ -1,7 +1,7 @@
 <% if @product.present? %>
-  <% content_for :title, "#{@product["title"]} | Supra" %>
+  <% content_for :title, "#{@product["title"]} | Supra Beach Volley" %>
 <% else %>
-  <% content_for :title, "Product Details | Supra" %>
+  <% content_for :title, "Product Details | Supra Beach Volley" %>
 <% end %>
 
 <%= render "shared/navbar" %>
@@ -32,35 +32,35 @@
     <div class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-start">
       <div class="space-y-6">
         <div class="group relative overflow-hidden rounded-[32px] bg-white shadow-glow border border-white/40">
-          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand via-accent to-brand"></div>
-          <div class="aspect-[4/5] bg-brand/5 flex items-center justify-center p-6">
+          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-surf via-brand to-sand"></div>
+          <div class="aspect-[4/5] bg-surf/10 flex items-center justify-center p-6">
             <img src="<%= @product["image"] %>" alt="<%= @product["title"] %>" class="h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105">
           </div>
         </div>
         <div class="grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl bg-white p-5 shadow-sm border border-slate-100">
+          <div class="rounded-2xl bg-white p-5 shadow-sm border border-surf/20">
             <div class="flex items-center gap-3">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/20 text-ink">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/20 text-brand">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a5 5 0 1 0-7.18 0L12 17.94l3.59-3.57Zm4.16-6.14A9 9 0 1 1 4.25 8.24" />
                 </svg>
               </span>
               <div>
-                <p class="font-semibold text-ink" data-i18n data-i18n-en="Free returns" data-i18n-th="คืนฟรี">Free returns</p>
-                <p class="text-xs text-slate-500" data-i18n data-i18n-en="30-day hassle-free exchanges." data-i18n-th="เปลี่ยนหรือคืนภายใน 30 วัน">30-day hassle-free exchanges.</p>
+                <p class="font-semibold text-ink" data-i18n data-i18n-en="Coastal fit guarantee" data-i18n-th="รับประกันความพอดีชายหาด">Coastal fit guarantee</p>
+                <p class="text-xs text-slate-500" data-i18n data-i18n-en="30-day returns and sandy play testing." data-i18n-th="คืนได้ใน 30 วัน พร้อมทดสอบในสนามทราย">30-day returns and sandy play testing.</p>
               </div>
             </div>
           </div>
-          <div class="rounded-2xl bg-white p-5 shadow-sm border border-slate-100">
+          <div class="rounded-2xl bg-white p-5 shadow-sm border border-surf/20">
             <div class="flex items-center gap-3">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/20 text-ink">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/20 text-brand">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l3 3" />
                 </svg>
               </span>
               <div>
-                <p class="font-semibold text-ink" data-i18n data-i18n-en="Express checkout" data-i18n-th="จ่ายด่วน">Express checkout</p>
-                <p class="text-xs text-slate-500" data-i18n data-i18n-en="SupraPay and PromptPay supported." data-i18n-th="รองรับ SupraPay และพร้อมเพย์">SupraPay and PromptPay supported.</p>
+                <p class="font-semibold text-ink" data-i18n data-i18n-en="Express checkout" data-i18n-th="ชำระด่วน">Express checkout</p>
+                <p class="text-xs text-slate-500" data-i18n data-i18n-en="SupraPay, PromptPay, and Sand Wallet supported." data-i18n-th="รองรับ SupraPay พร้อมเพย์ และ Sand Wallet">SupraPay, PromptPay, and Sand Wallet supported.</p>
               </div>
             </div>
           </div>
@@ -98,18 +98,18 @@
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-            <span data-i18n data-i18n-en="Top up &amp; buy" data-i18n-th="เติมตังแล้วซื้อ">Top up &amp; buy</span>
+            <span data-i18n data-i18n-en="Top up &amp; buy" data-i18n-th="เติมเงินแล้วซื้อ">Top up &amp; buy</span>
           </button>
         </div>
 
         <div class="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-slate-400">
+          <span class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm">UV Shield</span>
           <span class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm">Quick Dry</span>
-          <span class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm">Thai Weather Ready</span>
-          <span class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm">Machine Wash</span>
+          <span class="inline-flex items-center rounded-full bg-white px-4 py-2 shadow-sm">Thai Beach Ready</span>
         </div>
 
         <div class="space-y-4">
-          <details class="group rounded-2xl bg-white p-6 shadow-sm border border-slate-100" open>
+          <details class="group rounded-2xl bg-white p-6 shadow-sm border border-surf/20" open>
             <summary class="flex items-center justify-between cursor-pointer text-base font-semibold text-ink">
               <span data-i18n data-i18n-en="Product details" data-i18n-th="รายละเอียดสินค้า">Product details</span>
               <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
@@ -117,11 +117,11 @@
               </svg>
             </summary>
             <div class="mt-4 space-y-2 text-sm text-slate-500 leading-relaxed">
-              <p data-i18n data-i18n-en="Premium fabric blend tailored for hot climates with breathable weaves." data-i18n-th="ผ้าพรีเมียมระบายอากาศ เหมาะกับอากาศร้อนชื้น">Premium fabric blend tailored for hot climates with breathable weaves.</p>
-              <p data-i18n data-i18n-en="Inclusive sizing with hidden pockets and adaptive stretch panels." data-i18n-th="มีทุกไซซ์ พร้อมกระเป๋าซ่อนและผ้ายืดหยุ่นตามสรีระ">Inclusive sizing with hidden pockets and adaptive stretch panels.</p>
+              <p data-i18n data-i18n-en="Premium fabric blend engineered for tropical heat with ventilated mesh zones." data-i18n-th="ผ้าพรีเมียมระบายอากาศ รองรับอากาศร้อนชื้นพร้อมช่องตาข่าย">Premium fabric blend engineered for tropical heat with ventilated mesh zones.</p>
+              <p data-i18n data-i18n-en="Anti-slip grip panels keep your sets precise even with sand and sweat." data-i18n-th="แผ่นกันลื่นช่วยให้การเล่นแม่นยำ แม้มือมีทรายหรือเหงื่อ">Anti-slip grip panels keep your sets precise even with sand and sweat.</p>
             </div>
           </details>
-          <details class="group rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <details class="group rounded-2xl bg-white p-6 shadow-sm border border-surf/20">
             <summary class="flex items-center justify-between cursor-pointer text-base font-semibold text-ink">
               <span data-i18n data-i18n-en="Shipping &amp; return" data-i18n-th="การจัดส่งและคืนสินค้า">Shipping &amp; return</span>
               <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
@@ -129,11 +129,11 @@
               </svg>
             </summary>
             <div class="mt-4 space-y-2 text-sm text-slate-500 leading-relaxed">
-              <p data-i18n data-i18n-en="Free shipping nationwide over ฿999. Express same-day in Bangkok." data-i18n-th="จัดส่งฟรีทั่วไทยเมื่อสั่งเกิน 999 บาท มีด่วนภายในวันในกรุงเทพ">Free shipping nationwide over ฿999. Express same-day in Bangkok.</p>
-              <p data-i18n data-i18n-en="Returns accepted within 30 days. LINE OA support for quick swaps." data-i18n-th="คืนได้ภายใน 30 วัน มีเจ้าหน้าที่ LINE OA ช่วยดูแล">Returns accepted within 30 days. LINE OA support for quick swaps.</p>
+              <p data-i18n data-i18n-en="Free shipping nationwide over ฿999. Same-day drop in Bangkok sands." data-i18n-th="จัดส่งฟรีทั่วไทยเมื่อสั่งเกิน 999 บาท ส่งด่วนในกรุงเทพฯ วันเดียวถึง">Free shipping nationwide over ฿999. Same-day drop in Bangkok sands.</p>
+              <p data-i18n data-i18n-en="Returns accepted within 30 days. LINE OA crew support for quick swaps." data-i18n-th="คืนได้ภายใน 30 วัน มีทีม LINE OA ช่วยดูแล">Returns accepted within 30 days. LINE OA crew support for quick swaps.</p>
             </div>
           </details>
-          <details class="group rounded-2xl bg-white p-6 shadow-sm border border-slate-100">
+          <details class="group rounded-2xl bg-white p-6 shadow-sm border border-surf/20">
             <summary class="flex items-center justify-between cursor-pointer text-base font-semibold text-ink">
               <span data-i18n data-i18n-en="Care instructions" data-i18n-th="วิธีดูแล">Care instructions</span>
               <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
@@ -141,15 +141,15 @@
               </svg>
             </summary>
             <div class="mt-4 space-y-2 text-sm text-slate-500 leading-relaxed">
-              <p data-i18n data-i18n-en="Machine wash cold with mild detergent, hang dry indoors." data-i18n-th="ซักเครื่องน้ำเย็นด้วยน้ำยาสูตรอ่อน ตากในที่ร่ม">Machine wash cold with mild detergent, hang dry indoors.</p>
-              <p data-i18n data-i18n-en="Avoid bleach, press with warm iron if needed." data-i18n-th="หลีกเลี่ยงสารฟอกขาว รีดอุ่นได้ตามต้องการ">Avoid bleach, press with warm iron if needed.</p>
+              <p data-i18n data-i18n-en="Rinse saltwater gently, machine wash cold, hang in shade." data-i18n-th="ล้างน้ำทะเลออกเบาๆ ซักเครื่องน้ำเย็น ตากในที่ร่ม">Rinse saltwater gently, machine wash cold, hang in shade.</p>
+              <p data-i18n data-i18n-en="Avoid bleach, tumble dry low or air dry for best feel." data-i18n-th="หลีกเลี่ยงสารฟอกขาว อบลมเบา หรือผึ่งลมจะดีที่สุด">Avoid bleach, tumble dry low or air dry for best feel.</p>
             </div>
           </details>
         </div>
 
         <div id="ai-concierge" class="rounded-3xl border border-brand/30 bg-brand/10 p-6 shadow-sm space-y-4">
           <h2 class="text-xl font-semibold text-ink" data-i18n data-i18n-en="Need advice?" data-i18n-th="ต้องการคำแนะนำ?">Need advice?</h2>
-          <p class="text-sm text-slate-500" data-i18n data-i18n-en="Chat with Supra Concierge AI for Thai or English guidance." data-i18n-th="พูดคุยกับ Supra Concierge AI ได้ทั้งภาษาไทยและอังกฤษ">Chat with Supra Concierge AI for Thai or English guidance.</p>
+          <p class="text-sm text-slate-500" data-i18n data-i18n-en="Chat with Supra Coastline AI for Thai or English gear tips." data-i18n-th="คุยกับ Supra Coastline AI ได้ทั้งไทยและอังกฤษเพื่อรับคำแนะนำเรื่องอุปกรณ์">Chat with Supra Coastline AI for Thai or English gear tips.</p>
           <a href="#ai-concierge" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand border border-brand/40 hover:bg-brand hover:text-white transition">
             <span data-i18n data-i18n-en="Open AI chat" data-i18n-th="เปิดแชท AI">Open AI chat</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
@@ -159,59 +159,5 @@
         </div>
       </div>
     </div>
-
-    <% if @recommended_products.present? %>
-      <section class="space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <h2 class="text-2xl font-semibold text-ink" data-i18n data-i18n-en="You may also like" data-i18n-th="คุณอาจชอบ">You may also like</h2>
-            <p class="text-sm text-slate-500" data-i18n data-i18n-en="Popular picks curated for Thai shoppers." data-i18n-th="สินค้ายอดฮิตที่คนไทยชื่นชอบ">Popular picks curated for Thai shoppers.</p>
-          </div>
-          <a href="<%= root_path %>" class="text-sm font-semibold text-brand hover:text-brand-dark">
-            <span data-i18n data-i18n-en="Back to browse" data-i18n-th="กลับไปเลือกซื้อ">Back to browse</span>
-          </a>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2">
-          <% @recommended_products.each do |product| %>
-            <article class="rounded-3xl border border-slate-100 bg-white/90 p-6 shadow-sm transition hover:shadow-card">
-              <div class="flex flex-col sm:flex-row gap-5">
-                <div class="flex-shrink-0">
-                  <div class="h-28 w-28 rounded-2xl bg-brand/5 flex items-center justify-center overflow-hidden">
-                    <img src="<%= product["image"] %>" alt="<%= product["title"] %>" class="h-full w-full object-contain">
-                  </div>
-                </div>
-                <div class="flex-1 space-y-3">
-                  <h3 class="text-lg font-semibold text-ink line-clamp-2"><%= product["title"] %></h3>
-                  <p class="text-sm text-slate-500 line-clamp-2"><%= truncate(product["description"], length: 120) %></p>
-                  <div class="flex items-center justify-between">
-                    <p class="text-lg font-semibold text-ink"><%= number_to_currency(product["price"], precision: 2) %></p>
-                      <a href="<%= product_path(product["id"]) %>" class="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white shadow-glow hover:bg-brand-dark transition">
-                        <span data-i18n data-i18n-en="View" data-i18n-th="ดู">View</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
-                        </svg>
-                      </a>
-                  </div>
-                </div>
-              </div>
-            </article>
-          <% end %>
-        </div>
-      </section>
-    <% end %>
-  <% else %>
-    <div class="bg-white border border-slate-200 px-6 py-10 rounded-3xl text-center shadow-sm">
-      <p class="text-lg font-medium text-ink" data-i18n data-i18n-en="Product details are currently unavailable." data-i18n-th="ข้อมูลสินค้าไม่พร้อมใช้งาน">Product details are currently unavailable.</p>
-      <p class="text-sm text-slate-500 mt-2" data-i18n data-i18n-en="Please return to the collection to continue browsing." data-i18n-th="โปรดกลับไปที่หน้ารวมสินค้าเพื่อเลือกชมต่อ">Please return to the collection to continue browsing.</p>
-      <div class="mt-6">
-          <a href="<%= root_path %>" class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2 text-sm font-semibold text-white transition hover:bg-black">
-            <span aria-hidden="true">←</span>
-            <span data-i18n data-i18n-en="Back to products" data-i18n-th="กลับไปหน้าสินค้า">Back to products</span>
-          </a>
-      </div>
-    </div>
   <% end %>
 </div>
-
-<%= render "shared/loyalty_banner" %>
-<%= render "shared/footer_links" %>
