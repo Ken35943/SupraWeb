@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Supra Web" %></title>
+    <title><%= content_for(:title) || "Supra Beach Volley" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -28,15 +28,17 @@
           extend: {
             colors: {
               brand: {
-                DEFAULT: "#FF5A5F",
-                dark: "#E5484D",
-                soft: "#FFE9EA"
+                DEFAULT: "#FF8A3D",
+                dark: "#F97316",
+                soft: "#FFE7C7"
               },
-              ink: "#0B1120",
-              mist: "#F3F6FF",
-              accent: "#10B981",
-              gold: "#FBBF24",
-              night: "#1F2937"
+              surf: "#38BDF8",
+              tide: "#0EA5E9",
+              sand: "#FCD34D",
+              coral: "#FB7185",
+              ink: "#0F172A",
+              mist: "#E0F2FE",
+              night: "#0B1120"
             },
             fontFamily: {
               sans: ["'Plus Jakarta Sans'", "'Sarabun'", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "sans-serif"]
@@ -47,7 +49,8 @@
             },
             animation: {
               float: "float 8s ease-in-out infinite",
-              pulsefast: "pulsefast 2s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+              pulsefast: "pulsefast 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              pulsebeat: "pulsebeat 1.4s ease-in-out infinite"
             },
             keyframes: {
               float: {
@@ -57,6 +60,11 @@
               pulsefast: {
                 "0%, 100%": { opacity: "1" },
                 "50%": { opacity: "0.45" }
+              },
+              pulsebeat: {
+                "0%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.08)" },
+                "100%": { transform: "scale(1)" }
               }
             }
           }
@@ -69,9 +77,10 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   </head>
 
-  <body class="bg-gradient-to-b from-mist via-white to-white min-h-screen text-ink font-sans antialiased relative" data-app-shell>
-    <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[620px] overflow-hidden">
-      <div class="absolute left-1/2 -translate-x-1/2 top-[-320px] aspect-[5/3] w-[120vw] rounded-full bg-gradient-to-br from-brand/50 via-gold/20 to-accent/20 blur-3xl opacity-80"></div>
+  <body class="bg-gradient-to-b from-surf/30 via-white to-sand/20 min-h-screen text-ink font-sans antialiased relative" data-app-shell>
+    <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[720px] overflow-hidden">
+      <div class="absolute left-1/2 -translate-x-1/2 top-[-360px] aspect-[5/3] w-[130vw] rounded-full bg-gradient-to-br from-tide/40 via-brand/40 to-sand/40 blur-3xl opacity-90"></div>
+      <div class="absolute left-1/2 -translate-x-1/2 top-[-120px] aspect-square w-[480px] rounded-full bg-gradient-to-br from-brand/50 via-sand/40 to-white/40 blur-3xl opacity-70"></div>
     </div>
 
     <main class="min-h-screen">
@@ -86,6 +95,7 @@
         const modalTriggers = document.querySelectorAll("[data-modal-trigger]");
         const modalClosers = document.querySelectorAll("[data-modal-close]");
         const countdownTargets = document.querySelectorAll("[data-countdown-end]");
+        const spikeGames = document.querySelectorAll("[data-spike-game]");
         const body = document.body;
         const storedLanguage = window.localStorage.getItem("ydp-language") || "en";
 
@@ -109,6 +119,9 @@
               const label = language === "th" ? labelNode.dataset.languageLabelTh : labelNode.dataset.languageLabelEn;
               if (label) labelNode.textContent = label;
             });
+          });
+          document.querySelectorAll("[data-spike-game]").forEach((container) => {
+            container.dispatchEvent(new Event("languagechange"));
           });
           window.localStorage.setItem("ydp-language", language);
         };
@@ -174,6 +187,93 @@
 
           renderCountdown();
           intervalId = window.setInterval(renderCountdown, 1000);
+        });
+
+        spikeGames.forEach((container) => {
+          const beatIndicator = container.querySelector("[data-spike-beat]");
+          const tapButton = container.querySelector("[data-spike-button]");
+          const scoreNode = container.querySelector("[data-spike-score]");
+          const comboNode = container.querySelector("[data-spike-combo]");
+          const messageNode = container.querySelector("[data-spike-message]");
+          if (!beatIndicator || !tapButton || !scoreNode || !comboNode || !messageNode) return;
+
+          let score = 0;
+          let combo = 0;
+          let active = false;
+          let beatTimeout;
+          let beatIntervalId;
+
+          const messages = [
+            {
+              threshold: 0,
+              textEn: "Warm up those serves and keep the rhythm steady!",
+              textTh: "อุ่นเครื่องมือเสิร์ฟ จับจังหวะให้มั่น!"
+            },
+            {
+              threshold: 4,
+              textEn: "Nice rally! Redeem a sand dollar coin in the shop.",
+              textTh: "สุดยอด! เก็บเหรียญ Sand Dollar ไปใช้ในช็อปได้เลย"
+            },
+            {
+              threshold: 8,
+              textEn: "Combo heat! Unlock sunset bundle deals in the catalog.",
+              textTh: "คอมโบสุดร้อนแรง! ปลดล็อกดีล Sunset Bundle ในแคตตาล็อก"
+            },
+            {
+              threshold: 12,
+              textEn: "MVP mode! Claim free express waxing for your match ball.",
+              textTh: "โหมด MVP! รับบริการเคลือบลูกแข่งฟรีได้เลย"
+            }
+          ];
+
+          const updateMessage = () => {
+            const currentMessage = [...messages]
+              .reverse()
+              .find((entry) => combo >= entry.threshold) || messages[0];
+            const language = document.documentElement.lang === "th" ? "th" : "en";
+            messageNode.textContent =
+              language === "th" ? currentMessage.textTh : currentMessage.textEn;
+          };
+
+          const triggerBeat = () => {
+            active = true;
+            beatIndicator.classList.remove("opacity-20");
+            beatIndicator.classList.add("opacity-100", "animate-pulsebeat");
+            if (beatTimeout) window.clearTimeout(beatTimeout);
+            beatTimeout = window.setTimeout(() => {
+              active = false;
+              beatIndicator.classList.remove("animate-pulsebeat", "opacity-100");
+              beatIndicator.classList.add("opacity-20");
+            }, 350);
+          };
+
+          const scheduleBeat = () => {
+            triggerBeat();
+            if (beatIntervalId) window.clearInterval(beatIntervalId);
+            beatIntervalId = window.setInterval(triggerBeat, 1400);
+          };
+
+          scheduleBeat();
+
+          tapButton.addEventListener("click", () => {
+            if (active) {
+              score += 120;
+              combo += 1;
+              tapButton.classList.add("scale-95");
+              window.setTimeout(() => tapButton.classList.remove("scale-95"), 160);
+            } else {
+              combo = 0;
+              tapButton.classList.add("shake");
+              window.setTimeout(() => tapButton.classList.remove("shake"), 300);
+            }
+
+            scoreNode.textContent = score;
+            comboNode.textContent = `x${combo}`;
+            updateMessage();
+          });
+
+          container.addEventListener("languagechange", updateMessage);
+          updateMessage();
         });
 
         const chatForm = document.getElementById("ai-consult-form");
